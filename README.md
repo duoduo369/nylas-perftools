@@ -61,3 +61,24 @@ Then visit e.g. `http://localhost:5555?from=-15minutes` to see data from the pas
 # Questions? Issues?
 
 Don't hesitate to get in touch!
+
+
+# 真正应该这么做
+
+    git clone 这个项目
+    cd 到项目目录
+    pip install -e .
+
+    将 stacksampler.py 复制到项目目录，在按照 readme
+    中代码修改的方式修改对应代码
+
+    项目启动后执行
+    python -m stackcollector.collector --host localhost --ports 16384 --interval 60
+    写一个批量请求脚本 test.sh
+    每秒执行
+    watch -n1 test.sh
+
+    可视化工具
+    python -m stackcollector.visualizer --port 5555
+    如果项目所在机器无法通过5555端口访问，将 /var/lib/stackcollector
+    下的所有文件复制到可以访问机器访问

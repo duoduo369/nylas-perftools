@@ -1,5 +1,5 @@
 import contextlib
-import dbm
+import anydbm as dbm
 import time
 import click
 import requests
